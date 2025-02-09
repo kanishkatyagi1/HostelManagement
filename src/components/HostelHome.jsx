@@ -39,7 +39,7 @@ const cardVariants = {
 
 const Hostels = () => {
   return (
-    <section className="py-14 bg-white from-gray-50 to-gray-200">
+    <section className="py-14 bg-white from-gray-50 to-gray-200 mb-0">
       {/* Heading */}
       <motion.h2
         className="text-4xl font-extrabold text-center text-gray-900"
@@ -60,7 +60,7 @@ const Hostels = () => {
       ].map((section, index) => (
         <motion.div
           key={index}
-          className="mt-14 text-center"
+          className="mt-6 text-center"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
@@ -104,7 +104,7 @@ const Hostels = () => {
 
       {/* Hostel Image at the End */}
       <motion.div
-        className="relative mt-14 w-full"
+        className="relative mt-6 w-full"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
@@ -114,8 +114,11 @@ const Hostels = () => {
         <img
           src={GBUImage}
           alt="Hostel View"
-          className="w-full h-auto object-cover grayscale transition duration-500 hover:grayscale-0"
+          className="w-full h-[500px] object-cover grayscale transition duration-500 hover:grayscale-0"
         />
+
+        {/* Gradient Overlay (Blending Sky into Background) */}
+        <div className="absolute inset-0 bg-gradient-to-b from-white via-white/90 to-transparent h-1/4 pointer-events-none"></div>
       </motion.div>
     </section>
   );
