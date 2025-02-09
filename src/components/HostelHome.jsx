@@ -1,4 +1,6 @@
 import React from "react";
+import { motion } from "framer-motion";
+import GBUImage from "../assets/GBU.jpg";
 
 const girlsHostels = [
   "Savitri Bai Phule Girls Hostel",
@@ -25,71 +27,103 @@ const boysHostels = [
 
 const marriedHostels = ["Married Research Scholars Hostel"];
 
+const sectionVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, scale: 0.95 },
+  visible: { opacity: 1, scale: 1, transition: { duration: 0.3 } },
+};
+
 const Hostels = () => {
   return (
-    <section className="text-center py-10">
-      <h2 className="text-3xl font-semibold">Student Accommodation</h2>
-      <div className="w-16 h-1 bg-black mx-auto mt-1"></div>
+    <section className="py-14 bg-white from-gray-50 to-gray-200">
+      {/* Heading */}
+      <motion.h2
+        className="text-4xl font-extrabold text-center text-gray-900"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={sectionVariants}
+      >
+        Student Accommodation
+      </motion.h2>
+      <div className="w-20 h-1 bg-black mx-auto mt-2"></div>
 
-      {/* Girls' Hostels */}
-      <h3 className="text-2xl font-bold mt-6">
-        GIRLS' <span className="text-red-600">HOSTELS</span>
-      </h3>
-      <div className="w-24 h-1 bg-gray-300 mx-auto mt-1"></div>
+      {/* Hostel Sections */}
+      {[
+        { title: "GIRLS' HOSTELS", color: "red-600", data: girlsHostels },
+        { title: "BOYS' HOSTELS", color: "blue-600", data: boysHostels },
+        { title: "MARRIED HOSTELS", color: "green-600", data: marriedHostels },
+      ].map((section, index) => (
+        <motion.div
+          key={index}
+          className="mt-14 text-center"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={sectionVariants}
+        >
+          {/* Section Title */}
+          <h3 className="text-3xl font-bold">
+            {section.title.split(" ")[0]}{" "}
+            <span className={`text-${section.color}`}>{section.title.split(" ")[1]}</span>
+          </h3>
+          <div className="w-28 h-1 bg-gray-400 mx-auto mt-1"></div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6 px-6">
-        {girlsHostels.map((hostel, index) => (
-          <div
-            key={index}
-            className="border shadow-md p-6 rounded-lg bg-white text-center"
-          >
-            <h4 className="font-semibold">{hostel}</h4>
-            <button className="mt-3 bg-orange-500 text-white text-sm px-4 py-2 rounded-md hover:bg-orange-600 transition">
-              VIEW NOW !!
-            </button>
+          {/* Hostel Cards */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-6 px-6">
+            {section.data.map((hostel, index) => (
+              <motion.div
+                key={index}
+                className="bg-white shadow-md rounded-lg p-4 text-center hover:shadow-xl transition duration-300 border border-gray-200"
+                variants={cardVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+              >
+                <h4 className="text-lg font-semibold text-gray-800">{hostel}</h4>
+                <button
+                  className={`mt-3 px-4 py-2 text-sm font-medium text-white rounded-full shadow-md hover:bg-opacity-90 transition ${
+                    section.color === "red-600"
+                      ? "bg-red-600 hover:bg-red-700"
+                      : section.color === "blue-600"
+                      ? "bg-blue-600 hover:bg-blue-700"
+                      : "bg-green-600 hover:bg-green-700"
+                  }`}
+                >
+                  View Details
+                </button>
+              </motion.div>
+            ))}
           </div>
-        ))}
-      </div>
+        </motion.div>
+      ))}
 
-      {/* Boys' Hostels */}
-      <h3 className="text-2xl font-bold mt-10">
-        BOYS' <span className="text-blue-600">HOSTELS</span>
-      </h3>
-      <div className="w-24 h-1 bg-gray-300 mx-auto mt-1"></div>
+      {/* Hostel Image at the End */}
+      <motion.div
+  className="relative mt-14 w-full"
+  initial="hidden"
+  whileInView="visible"
+  viewport={{ once: true }}
+  variants={sectionVariants}
+>
+  {/* Image */}
+  <img
+    src={GBUImage}
+    alt="Hostel View"
+    className="w-full h-auto object-cover grayscale transition duration-500 hover:grayscale-0"
+  />
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6 px-6">
-        {boysHostels.map((hostel, index) => (
-          <div
-            key={index}
-            className="border shadow-md p-6 rounded-lg bg-white text-center"
-          >
-            <h4 className="font-semibold">{hostel}</h4>
-            <button className="mt-3 bg-blue-500 text-white text-sm px-4 py-2 rounded-md hover:bg-blue-600 transition">
-              VIEW NOW !!
-            </button>
-          </div>
-        ))}
-      </div>
+  {/* Gradient Overlay (Blending Sky into Background) */}
+  <div className="absolute inset-0 bg-gradient-to-b from-white via-white/90 to-transparent h-1/3 pointer-events-none"></div>
+</motion.div>
 
-      {/* Married Hostels */}
-      <h3 className="text-2xl font-bold mt-10">
-        MARRIED <span className="text-green-600">HOSTELS</span>
-      </h3>
-      <div className="w-24 h-1 bg-gray-300 mx-auto mt-1"></div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6 px-6">
-        {marriedHostels.map((hostel, index) => (
-          <div
-            key={index}
-            className="border shadow-md p-6 rounded-lg bg-white text-center"
-          >
-            <h4 className="font-semibold">{hostel}</h4>
-            <button className="mt-3 bg-green-500 text-white text-sm px-4 py-2 rounded-md hover:bg-green-600 transition">
-              VIEW NOW !!
-            </button>
-          </div>
-        ))}
-      </div>
+
+
     </section>
   );
 };
