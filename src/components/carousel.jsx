@@ -25,7 +25,7 @@ const Carousel = () => {
   }, []);
 
   return (
-    <div className="relative w-full h-[80vh]">
+    <div className="relative w-full h-[60vh] sm:h-[70vh] md:h-[80vh]">
       {/* Image Container */}
       <img
         src={images[currentIndex]}
@@ -36,14 +36,14 @@ const Carousel = () => {
       {/* Navigation Buttons */}
       <button
         onClick={prevSlide}
-        className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-gray-800 text-white p-3 rounded-full shadow-md hover:bg-gray-700"
+        className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-gray-800 text-white p-3 rounded-full shadow-md hover:bg-gray-700 sm:left-2 md:left-4 lg:left-6"
         aria-label="Previous Slide"
       >
         ‹
       </button>
       <button
         onClick={nextSlide}
-        className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-gray-800 text-white p-3 rounded-full shadow-md hover:bg-gray-700"
+        className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-gray-800 text-white p-3 rounded-full shadow-md hover:bg-gray-700 sm:right-2 md:right-4 lg:right-6"
         aria-label="Next Slide"
       >
         ›
