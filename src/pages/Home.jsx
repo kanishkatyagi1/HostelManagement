@@ -1,7 +1,8 @@
 import HeroBar from "../components/carousel";
 import Spotlights from "../components/Spotlights";
 import HostelInfo from "../components/HostelInfo";
-
+import NoticesAndEvents from "../components/Notices&event";
+import Hostels from "../components/HostelHome";
 const Home = () => {
   return (
     <div>
@@ -9,11 +10,8 @@ const Home = () => {
       <HeroBar />
       <Spotlights />
       <HostelInfo />
-      {/* Main Content */}
-      <div className="text-center p-10">
-        <h2 className="text-3xl font-bold">Welcome to GBU Hostels</h2>
-        <p className="text-lg mt-4">Providing a comfortable and secure stay for students.</p>
-      </div>
+      <NoticesAndEvents />
+      <Hostels/>
     </div>
   );
 };
