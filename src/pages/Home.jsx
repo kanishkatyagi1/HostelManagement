@@ -3,6 +3,7 @@ import Spotlights from "../components/Spotlights";
 import HostelInfo from "../components/HostelInfo";
 import NoticesAndEvents from "../components/Notices&event";
 import HostelHome from "../components/HostelHome";
+import Footer from "../components/Footer"
 const Home = () => {
   return (
     <div>
@@ -12,6 +13,7 @@ const Home = () => {
       <HostelInfo />
       <NoticesAndEvents />
       <HostelHome/>
+      <Footer/>
     </div>
   );
 };

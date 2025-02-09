@@ -104,26 +104,19 @@ const Hostels = () => {
 
       {/* Hostel Image at the End */}
       <motion.div
-  className="relative mt-14 w-full"
-  initial="hidden"
-  whileInView="visible"
-  viewport={{ once: true }}
-  variants={sectionVariants}
->
-  {/* Image */}
-  <img
-    src={GBUImage}
-    alt="Hostel View"
-    className="w-full h-auto object-cover grayscale transition duration-500 hover:grayscale-0"
-  />
-
-  {/* Gradient Overlay (Blending Sky into Background) */}
-  <div className="absolute inset-0 bg-gradient-to-b from-white via-white/90 to-transparent h-1/3 pointer-events-none"></div>
-</motion.div>
-
-
-
-
+        className="relative mt-14 w-full"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={sectionVariants}
+      >
+        {/* Image */}
+        <img
+          src={GBUImage}
+          alt="Hostel View"
+          className="w-full h-auto object-cover grayscale transition duration-500 hover:grayscale-0"
+        />
+      </motion.div>
     </section>
   );
 };
