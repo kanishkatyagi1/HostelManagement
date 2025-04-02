@@ -4,7 +4,6 @@ import HostelInfo from "../components/HostelInfo";
 import NoticesAndEvents from "../components/Notices&event";
 import HostelHome from "../components/HostelHome";
 import Footer from "../components/Footer";
-import Chatbot from "../components/Chatbot"; // Import the chatbot
 
 const Home = () => {
   return (
@@ -15,7 +14,7 @@ const Home = () => {
       <NoticesAndEvents />
       <HostelHome />
       <Footer />
-      <Chatbot /> {/* Add Chatbot here */}
+      
     </div>
   );
 };
